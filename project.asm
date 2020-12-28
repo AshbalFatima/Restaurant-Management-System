@@ -10,7 +10,7 @@
 ;*********************************
 ;_________________________________
 M1 DB 10,13,10,13,'                 ****MOST WELCOME TO PAKISTANI AND CONTINENTAL ****$',10,13 
-M2 DB 10,13,10,13,'Enter your Choise $'
+M2 DB 10,13,10,13,'Please Order Here: $'
 
 M3 DB 10,13,'  **                 1. IFTAR DINNER MENU         **$' 
 M4 DB 10,13,'  **                 2. BUFFET DISHES             **$'
