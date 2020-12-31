@@ -262,6 +262,114 @@ START:                                   ;MAIN MENU i.e. START OF PROGRAM
 ;_________________________________
 
 
+BREATFAST:                               ;BREATFAST LABEL STARTS
+    LEA DX,M_CHOICE                      ;PRINTING  STRING TO CHOOSE FOOD FROM THE MENU
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,NEWLINE ;NEWLINE              ;NEWLINE
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER4
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER4                       ;UPPER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER3
+    MOV AH,9
+    INT 21H
+
+    LEA DX,B_CHOICE1                     ;CHOICE 1 OF BREAKFAST MENU GETS PRINTED ON SCREEN 
+    MOV AH,9
+    INT 21H     
+    
+    LEA DX,B_CHOICE2                     ;CHOICE 2 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,B_CHOICE3                     ;CHOICE 3 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    MOV AH,9            
+    INT 21H 
+    
+    LEA DX,B_CHOICE4                     ;CHOICE 4 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    MOV AH,9           
+    INT 21H    
+    
+    LEA DX,B_CHOICE5                     ;CHOICE 5 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+        
+    LEA DX,B_CHOICE6                     ;CHOICE 6 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H            
+    
+    LEA DX,B_CHOICE7                     ;CHOICE 7 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    MOV AH,9            
+    INT 21H            
+            
+    LEA DX,B_CHOICE8                     ;CHOICE 8 OF BREAKFAST MENU GETS PRINTED ON SCREEN 
+    MOV AH,9
+    INT 21H 
+    
+    LEA DX,B_CHOICE9                     ;CHOICE 9 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H       
+    
+    LEA DX,BORDER3
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER4                       ;LOWER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER4
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,ORDER                         ;ASKING USER TO ENTER THE ORDER           
+    MOV AH,9
+    INT 21H 
+        
+    MOV AH,1                             ;READ A CHARACTER i.e. CHOICE
+    INT 21H
+    MOV BL,AL                            ;CONVERT IT TO HEXADECIMAL
+    SUB BL,48 
+    
+    CMP BL,1
+    JE TEN
+    
+    CMP BL,2
+    JE TEN
+    
+    CMP BL,3
+    JE TEN 
+    
+    CMP BL,4
+    JE TEN
+                                         ;COMARING ALL VALUES WITH HEX VALUE AND GO TO FURTHUR LABELS ON THE BASIS OF THEIR PRICES ACCORDINGLY
+    CMP BL,5                             ;i.e. IF BH=1, HAVING AN ORDER OF PRICE 10 , CONTROL WILL GO TO "TEN" LABEL
+    JE TWENTY
+    
+    CMP BL,6
+    JE TWENTY
+    
+    CMP BL,7
+    JE TEN
+    
+    CMP BL,8
+    JE TWENTY
+    
+    CMP BL,9
+    JE SIXTY
+    
+    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALD" LABEL     
+
+
 
 
 
