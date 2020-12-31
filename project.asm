@@ -432,7 +432,7 @@ DESSERTS:                                ;DESSERTS LABEL STARTS
 ;_________________________________
 
 ;*********************************
-;COMMON CODING FOR ALL PROGRAMS BY KOMAL
+;COMMON CODING FOR WHOLE PROGRAMS BY KOMAL
 ;*********************************
 ;_________________________________
 
@@ -615,9 +615,8 @@ INVALID:                                 ;INVALID LABEL STARTS
     JMP START                              ;GO BACK TO LABEL START, i.e. MAIN MENU
 
 ;code end
- EXIT:
-    
+EXIT:                                    ;EXIT LABEL STARTS
     MOV AH,4CH
-    INT 21H
+    INT 21H                              ;PROGRAM ENDS
     MAIN ENDP
 END MAIN
