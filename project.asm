@@ -9,8 +9,21 @@
 ;     FRONT END BY HAIDER
 ;*********************************
 ;_________________________________
-M1 DB 10,13,10,13,'                 ****MOST WELCOME TO PAKISTANI AND CONTINENTAL ****$',10,13 
-M2 DB 10,13,10,13,'Please Order Here: $'
+
+QUANTITY DB ?
+WEL_MSG DB 10,13,10,13,'                 ****MOST WELCOME TO PAKISTANI AND CONTINENTAL ****$',10,13 
+SEAT DB 10,13,10,13,'HAVE YOU RESERVED A SEAT? $'
+SEAT_CHOICE DB 10,13,10,13,'PRESS 1 FOR YES AND ANYTHING FOR NO: $'
+CHOICE DB 10,13,10,13,'ENTER YOUR CHOICE: $'
+M_CHOICE DB 10,13,10,13,'---CHOOSE YOUR FOOD FROM THE MENU---$'
+ORDER DB 10,13,10,13,'ENTER YOUR ORDER: $'
+NUMBER DB 10,13,'Quantity: $'
+PRICE DB 10,13,'Total Price: $'
+END_CHOICE1 DB 10,13,10,13,'1.Go Back to Main Menu$'
+END_CHOICE2 DB 10,13,'2(OR ANYSTRING).EXIT$'
+NEWLINE DB 10,13,10,13,' $'
+
+;MAIN MENU
 
 M3 DB 10,13,'  **                 1. IFTAR DINNER MENU         **$' 
 M4 DB 10,13,'  **                 2. BUFFET DISHES             **$'
@@ -125,13 +138,164 @@ MR7 DB 10,13,'  **********************************************$'
 SEJ DB 10,13,10,13,' $'
 
 
+;_________________________________
+
+;*********************************
+;MAIN CODE BY ASHBAL
+;*********************************
+;_________________________________
+
+
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    LEA DX,SEAT                          ;SEAT RESERVATION MSG GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+
+    LEA DX,SEAT_CHOICE                   ;SEAT RESERVATION CHOICE MSG GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+
+    MOV AH,1                             ;READ A CHARACTER i.e. CHOICE
+    INT 21H
+    MOV BH,AL                            ;CONVERT IT TO HEXADECIMAL
+    SUB BH,48
+
+    CMP BH,1                             ;IF CHOICE IS NOT 1 i.e. YES,THEN EXIT THE PROGRAM
+    JNE EXIT
+  
+START:                                   ;MAIN MENU i.e. START OF PROGRAM
+    LEA DX,WEL_MSG                       ;WELCOME MSG GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,NEWLINE                       ;NEWLINE
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER2                           
+    MOV AH,9
+    INT 21H
+       
+    LEA DX,BORDER2
+    MOV AH,9                             ; UPPER BORDER OF THE MENU
+    INT 21H                                 
+    
+    LEA DX,BORDER1
+    MOV AH,9
+    INT 21H   
+    
+    LEA DX,M_CHOICE1                     ;CHOICE 1 OF MAIN MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,M_CHOICE2                     ;CHOICE 2 OF MAIN MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,M_CHOICE3                     ;CHOICE 3 OF MAIN MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,M_CHOICE4                     ;CHOICE 4 OF MAIN MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,M_CHOICE5                     ;CHOICE 5 OF MAIN MENU GETS PRINTED ON SCREEN 
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,M_CHOICE6                     ;CHOICE 6 OF MAIN MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER1
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER2                       ;LOWER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H
+                                           
+    LEA DX,BORDER2
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,CHOICE                        ;ASKING USER TO CHOOSE FROM THE GIVEN CHOICES
+    MOV AH,9
+    INT 21H
+     
+    MOV AH,1                             ;READ A CHARACTER i.e. CHOICE
+    INT 21H
+    MOV BH,AL                            ;CONVERT IT TO HEXADECIMAL
+    SUB BH,48
+    
+    CMP BH,1
+    JE BREATFAST
+    
+    CMP BH,2
+    JE LD   
+     
+    CMP BH,3
+    JE DINNER     
+                                         ;COMARING ALL VALUES WITH HEX VALUE AND GO TO FURTHUR MENUS ACCORDINGLY
+    CMP BH,4                             ;i.e. IF BH=1 , CONTROL WILL GO TO "BREAKFAST" LABEL(MENU)
+    JE SNACKS    
+     
+    CMP BH,5
+    JE SWEETMEAT
+    
+    CMP BH,6
+    JE DRINKS   
+    
+    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALD" LABEL
+  
+  
+ ;_________________________________
+
+;*********************************
+;BREAKFAST BY NOSHEEN
+;*********************************
+;_________________________________
+
+
 
 
 
 ;_________________________________
 
 ;*********************************
-;MAIN CODE BY ASHBAL
+;LUNCH BY DAUD
+;*********************************
+;_________________________________
+
+
+
+;_________________________________
+
+;*********************************
+;DINNER BY HAIDER
+;*********************************
+;_________________________________
+
+
+
+;_________________________________
+
+;*********************************
+;DESSERTS BY KOMAL
+;*********************************
+;_________________________________
+
+
+
+;_________________________________
+
+;*********************************
+;DRINKS AND SNACKS BY ASHBAL
 ;*********************************
 ;_________________________________
 
