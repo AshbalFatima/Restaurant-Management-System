@@ -246,7 +246,7 @@ START:                                   ;MAIN MENU i.e. START OF PROGRAM
     JE SNACKS    
      
     CMP BH,5
-    JE SWEETMEAT
+    JE DESSERT
     
     CMP BH,6
     JE DRINKS   
