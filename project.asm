@@ -11,11 +11,13 @@
 ;_________________________________
 
 QUANTITY DB ?
-WEL_MSG DB 10,13,10,13,'                 ****MOST WELCOME TO PAKISTANI AND CONTINENTAL ****$',10,13 
+WEL_MSG DB 10,13,10,13,'              ****MOST WELCOME TO PAKISTANI AND CONTINENTAL ****$' 
+MAIN_MENU DB 10,13,10,13,'       ***CHOOSE YOUR MENU FROM MAIN MENU*** $' 
 SEAT DB 10,13,10,13,'HAVE YOU RESERVED A SEAT? $'
-SEAT_CHOICE DB 10,13,10,13,'PRESS 1 FOR YES AND ANYTHING FOR NO: $'
+SEAT_CHOICE1 DB 10,13,'1.YES I HAVE$'
+SEAT_CHOICE2 DB 10,13,'2(OR ANYSTRING).NO I HAVE NOT$'
 CHOICE DB 10,13,10,13,'ENTER YOUR CHOICE: $'
-M_CHOICE DB 10,13,10,13,'---CHOOSE YOUR FOOD FROM THE MENU---$'
+M_CHOICE DB 10,13,10,13,'        ***CHOOSE YOUR FOOD FROM THE MENU***$'
 ORDER DB 10,13,10,13,'ENTER YOUR ORDER: $'
 NUMBER DB 10,13,'Quantity: $'
 PRICE DB 10,13,'Total Price: $'
@@ -24,121 +26,75 @@ END_CHOICE2 DB 10,13,'2(OR ANYSTRING).EXIT$'
 NEWLINE DB 10,13,10,13,' $'
 
 ;MAIN MENU
-
-M3 DB 10,13,'  **                 1. IFTAR DINNER MENU         **$' 
-M4 DB 10,13,'  **                 2. BUFFET DISHES             **$'
-MS5 DB 10,13,'  **                3. Dinner Menue            **$'
-M5 DB 10,13,'  **                 4. Snacks                  **$'
-M6 DB 10,13,'  **                 5. DESSERT              **$'
-M7 DB 10,13,'  **                 6. Drinks                  **$'  
-               
-               
-M8 DB 10,13,10,13,'***what you want to choose from our menu:***$'
-  
-;IFTAR DINNER MENU 
-M9 DB 10,13,'  **            1.IRANIAN KHAJOOR           30/-                      **$' ;iftari menu
-M10 DB 10,13,'  **           2.DAHI BALLAY               110/-                      **$'
-M11 DB 10,13,'  **           3.FRUIT CHAAT               110/-                      **$'
-M12 DB 10,13,'  **           4.VARIETY OF CHATNI         60/-                      **$'
-M13 DB 10,13,'  **           5.FROSTED LEMONADES         120/-                      **$'
-M14 DB 10,13,'  **           6.MINT LEMONADE             120/-                      **$'
-M15 DB 10,13,'  **           7.PAKORAS                   230/-                      **$'
-M16 DB 10,13,'  **           8.SPRING LEMONS             120/-                      **$'
-M17 DB 10,13,'  **           9.SAMOSAS                   60/-                      **$' 
-
+M_CHOICE1 DB 10,13,'  **              1. IFTAR DINNER MENU         **$' 
+M_CHOICE2 DB 10,13,'  **              2. BUFFET DISHES             **$'
+M_CHOICE3 DB 10,13,'  **              3. DINNER MENU               **$'
+M_CHOICE4 DB 10,13,'  **              4. SNACKS                    **$'
+M_CHOICE5 DB 10,13,'  **              5. DESSERT                   **$'
+M_CHOICE6 DB 10,13,'  **              6. DRINKS                    **$'  
+                              
+;IFTAR_DINNER  
+ID_CHOICE1 DB 10,13,'  **           1.IRANIAN KHAJOOR         10/-                      **$' 
+ID_CHOICE2 DB 10,13,'  **           2.DAHI BALLAY             30/-                      **$'
+ID_CHOICE3 DB 10,13,'  **           3.FRUIT CHAAT             30/-                      **$'
+ID_CHOICE4 DB 10,13,'  **           4.VARIETY OF CHATNI       10/-                      **$'
+ID_CHOICE5 DB 10,13,'  **           5.FROSTED LEMONADES       20/-                      **$'
+ID_CHOICE6 DB 10,13,'  **           6.MINT LEMONADE           20/-                      **$'
+ID_CHOICE7 DB 10,13,'  **           7.PAKORAS                 60/-                      **$'
+ID_CHOICE8 DB 10,13,'  **           8.SPRING LEMONS           20/-                      **$'
+ID_CHOICE9 DB 10,13,'  **           9.SAMOSAS                 60/-                      **$' 
  
+;BUFFET DISHES 
+BD_CHOICE1 DB 10,13,'  **           1.Mutton karahi            90/-                     **$' 
+BD_CHOICE2 DB 10,13,'  **           2.kaabli pulao             90/-                     **$' 
+BD_CHOICE3 DB 10,13,'  **           3.Chicken Bharta           30/-                     **$' 
+BD_CHOICE4 DB 10,13,'  **           4.Zeera pulao              90/-                     **$'
+BD_CHOICE5 DB 10,13,'  **           5.Chicken Karahi           90/-                     **$'
+BD_CHOICE6 DB 10,13,'  **           6.Plain Rice               10/-                     **$'
+BD_CHOICE7 DB 10,13,'  **           7.Palak Paneer             30/-                     **$'
+BD_CHOICE8 DB 10,13,'  **           8.Beef Nihari              30/-                     **$'
+BD_CHOICE9 DB 10,13,'  **           9.Tawa Paratha             30/-                     **$'
 
-;BUFFET DISHES
-
-M25 DB 10,13,'  **  1.Mutton karahi              490/-                **$' 
-M26 DB 10,13,'  **  2.kaabli pulao               230/-                **$' 
-M27 DB 10,13,'  **  3.Chicken Bharta             130/-                **$' 
-M28 DB 10,13,'  **  4.Palak Paneer               340/-                **$'
-M29 DB 10,13,'  **  5.Chicken Karahi             100/-                **$'
-M30 DB 10,13,'  **  6.Zeera pulao                110/-                **$'
-M31 DB 10,13,'  **  7.Plain Rice                 120/-                **$'
-M32 DB 10,13,'  **  8.Beef Nihari                70/-                **$'
-M33 DB 10,13,'  **  9.Tawa Paratha               80/-                **$'
- 
-
- 
- 
 ;DINNER
+D_CHOICE1 DB 10,13,'  **  1.STARTERS                         60/-                      **$'
+D_CHOICE2 DB 10,13,'  **  2.Chicken Bhuna Khichuri           80/-                      **$'
+D_CHOICE3 DB 10,13,'  **  3.Mutton Bhuna Khichuri            80/-                      **$' 
+D_CHOICE4 DB 10,13,'  **  4.BBQ: Chicken Gola Kabab          40/-                      **$'
+D_CHOICE5 DB 10,13,'  **  5.BBQ: Chicken Boneless Boti       50/-                      **$'
+D_CHOICE6 DB 10,13,'  **  6.Chicken Cheese Kabab             70/-                      **$'
+D_CHOICE7 DB 10,13,'  **  7.Rogni naan                       10/-                      **$'
+D_CHOICE8 DB 10,13,'  **  8.Fish                             60/-                      **$'
+D_CHOICE9 DB 10,13,'  **  9.Achari PAratha                   10/-                      **$'
 
-M18 DB 10,13,'  **  1.starters                        60/-                               **$'
-M19 DB 10,13,'  **  2.Chicken Tikka Pizza             780/-                               **$'
-M20 DB 10,13,'  **  3.Chicken Fajita Pizza            1080/-                               **$' 
-M21 DB 10,13,'  **  4.Chicken Pizza Special           1140/-                               **$'
-M22 DB 10,13,'  **  5.BBQ: Chicken Gola Kabab         950/-                               **$'
-M23 DB 10,13,'  **  6.BBQ: Chicken Boneless Boti      670/-                               **$'
-M34 DB 10,13,'  **  7.Chicken Cheese Kabab            160/-                               **$'
-M35 DB 10,13,'  **  8.Rogni naan                      20/-                               **$'
-M36 DB 10,13,'  **  9.Achari PAratha                  120/-                               **$'
-
-
-;snacks
-
-M41 DB 10,13,'  **  1.Alfredo Pasta                            380/-                  **$'
-M42 DB 10,13,'  **  2.Garlic mayo Fries                        180/-                 **$'
-M43 DB 10,13,'  **  3.Fries in Box coated with chicken         125/-                  **$'
-M44 DB 10,13,'  **  4.Cheese Cake                              455/-                  **$'
+;Snacks
+SN_CHOICE1 DB 10,13,'  **  1.Sweet Potatoes   8/-                   **$'
+SN_CHOICE2 DB 10,13,'  **  2.Loaded Fries     9/-                   **$'
+SN_CHOICE3 DB 10,13,'  **  3.Shami/Jali Kabab 5/-                   **$'
+SN_CHOICE4 DB 10,13,'  **  4.Plain Fries      5/-                   **$'
 
 ;DESSERT
-M45 DB 10,13,'  **  1.Gulaab Jaman        50/-                           **$' 
-M46 DB 10,13,'  **  2.Chocolate Brownie   350/-                           **$'
-M47 DB 10,13,'  **  3.Plain Custard       120/-                           **$'
-M48 DB 10,13,'  **  4.Rus Malai           50/-                           **$'
+DT_CHOICE1 DB 10,13,'  **  1.Gulaab Jaman     50/-                  **$' 
+DT_CHOICE2 DB 10,13,'  **  2.Brownie          50/-                  **$'
+DT_CHOICE3 DB 10,13,'  **  3.Plain Custard    50/-                  **$'
+DT_CHOICE4 DB 10,13,'  **  4.Rus Malai        50/-                  **$'
 
 ;Drinks
-M49 DB 10,13,'  **  1. Coke             80/-                      **$'
-M50 DB 10,13,'  **  2. Sprite           80/-                      **$'
-M51 DB 10,13,'  **  3. Mineral Water    50/-                      **$'
-M52 DB 10,13,'  **  4. Green Tea        110/-                      **$'
-M53 DB 10,13,'  **  5. Black Tea        90/-                      **$'
-M54 DB 10,13,'  **  6. Coffee           135/-                      **$'
-
-
+DR_CHOICE1 DB 10,13,'  **  1.Coke               8/-                 **$'
+DR_CHOICE2 DB 10,13,'  **  2.Sprite             6/-                 **$'
+DR_CHOICE3 DB 10,13,'  **  3.Coffee             9/-                 **$'
+DR_CHOICE4 DB 10,13,'  **  4.Green Tea          9/-                 **$'
+DR_CHOICE5 DB 10,13,'  **  5.Black Tea          7/-                 **$'
+DR_CHOICE6 DB 10,13,'  **  6.Mineral Water      5/-                 **$'
 
 ;INVALID
-M55 DB 10,13,10,13,'***&&INVALID ENTRY&&***$'
-M56 DB 10,13,'      ***&&Try Again&&***$'
+INVALID1 DB 10,13,10,13,'***&&INVALID ENTRY&&***$'
+INVALID2 DB 10,13,'      ***&&Try Again&&***$'
 
-
-
-M57 DB 10,13,10,13,'Please Enter your order here: $'
-M58 DB 10,13,'How Much: $'
-M59 DB 10,13,'Total Bill: $'
-
-
-DRINK DB ?
-QUANTITY DB ?
-
-
-M60 DB 10,13,10,13,'1.Go Back to Main Menu$'
-M61 DB 10,13,'2.EXIT$'
-
-;STAR RESIZE
-
-
-MR1 DB 10,13,'  **                                           **$'
-MR2 DB 10,13,'  ***********************************************$'
-
-MR3 DB 10,13,'  **                                           **$'
-
-
-MR4 DB 10,13,'  **                                                               **$'
-MR5 DB 10,13,'  *******************************************************************$'
-
-
-
-MR6 DB 10,13,'  **                                          **$'
-MR7 DB 10,13,'  **********************************************$'
-
-
-SEJ DB 10,13,10,13,' $'
-
-
-;_________________________________
+;BORDER
+BORDER1 DB 10,13,'  **                                           **$'
+BORDER2 DB 10,13,'  ***********************************************$'
+BORDER3 DB 10,13,'  **                                                               **$'
+BORDER4 DB 10,13,'  *******************************************************************$'
 
 ;*********************************
 ;MAIN CODE BY ASHBAL
@@ -150,12 +106,24 @@ SEJ DB 10,13,10,13,' $'
 MAIN PROC
     MOV AX,@DATA
     MOV DS,AX
+
+    LEA DX,WEL_MSG                       ;WELCOME MSG GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
     
     LEA DX,SEAT                          ;SEAT RESERVATION MSG GETS PRINTED ON SCREEN
     MOV AH,9
     INT 21H
 
-    LEA DX,SEAT_CHOICE                   ;SEAT RESERVATION CHOICE MSG GETS PRINTED ON SCREEN
+    LEA DX,SEAT_CHOICE1                   ;SEAT RESERVATION CHOICE MSG1 GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+
+    LEA DX,SEAT_CHOICE2                   ;SEAT RESERVATION CHOICE MSG2 GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+
+    LEA DX,CHOICE                        ;ASKING USER TO CHOOSE FROM THE GIVEN CHOICES
     MOV AH,9
     INT 21H
 
@@ -168,14 +136,10 @@ MAIN PROC
     JNE EXIT
   
 START:                                   ;MAIN MENU i.e. START OF PROGRAM
-    LEA DX,WEL_MSG                       ;WELCOME MSG GETS PRINTED ON SCREEN
+    LEA DX,MAIN_MENU                     ;MAIN MENU MSG GETS PRINTED ON SCREEN
     MOV AH,9
     INT 21H
-    
-    LEA DX,NEWLINE                       ;NEWLINE
-    MOV AH,9
-    INT 21H
-    
+
     LEA DX,BORDER2                           
     MOV AH,9
     INT 21H
@@ -234,27 +198,26 @@ START:                                   ;MAIN MENU i.e. START OF PROGRAM
     SUB BH,48
     
     CMP BH,1
-    JE BREATFAST
+    JE IFTAR_DINNER
     
     CMP BH,2
-    JE LD   
+    JE BUFFET   
      
     CMP BH,3
     JE DINNER     
                                          ;COMARING ALL VALUES WITH HEX VALUE AND GO TO FURTHUR MENUS ACCORDINGLY
-    CMP BH,4                             ;i.e. IF BH=1 , CONTROL WILL GO TO "BREAKFAST" LABEL(MENU)
+    CMP BH,4                             ;i.e. IF BH=1 , CONTROL WILL GO TO "IFTAR_DINNER" LABEL(MENU)
     JE SNACKS    
      
     CMP BH,5
-    JE DESSERT
+    JE DESSERTS
     
     CMP BH,6
     JE DRINKS   
     
-    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALD" LABEL
-  
-  
- ;_________________________________
+    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALID" LABEL
+    
+;_________________________________
 
 ;*********************************
 ;BREAKFAST BY NOSHEEN
@@ -262,7 +225,7 @@ START:                                   ;MAIN MENU i.e. START OF PROGRAM
 ;_________________________________
 
 
-BREATFAST:                               ;BREATFAST LABEL STARTS
+IFTAR_DINNER:                            ;IFTAR_DINNER LABEL STARTS
     LEA DX,M_CHOICE                      ;PRINTING  STRING TO CHOOSE FOOD FROM THE MENU
     MOV AH,9
     INT 21H
@@ -283,39 +246,39 @@ BREATFAST:                               ;BREATFAST LABEL STARTS
     MOV AH,9
     INT 21H
 
-    LEA DX,B_CHOICE1                     ;CHOICE 1 OF BREAKFAST MENU GETS PRINTED ON SCREEN 
+    LEA DX,ID_CHOICE1                     ;CHOICE 1 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN 
     MOV AH,9
     INT 21H     
     
-    LEA DX,B_CHOICE2                     ;CHOICE 2 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    LEA DX,ID_CHOICE2                     ;CHOICE 2 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN
     MOV AH,9
     INT 21H
     
-    LEA DX,B_CHOICE3                     ;CHOICE 3 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    LEA DX,ID_CHOICE3                     ;CHOICE 3 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN
     MOV AH,9            
     INT 21H 
     
-    LEA DX,B_CHOICE4                     ;CHOICE 4 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    LEA DX,ID_CHOICE4                     ;CHOICE 4 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN
     MOV AH,9           
     INT 21H    
     
-    LEA DX,B_CHOICE5                     ;CHOICE 5 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    LEA DX,ID_CHOICE5                     ;CHOICE 5 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN
     MOV AH,9
     INT 21H
         
-    LEA DX,B_CHOICE6                     ;CHOICE 6 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    LEA DX,ID_CHOICE6                     ;CHOICE 6 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN
     MOV AH,9
     INT 21H            
     
-    LEA DX,B_CHOICE7                     ;CHOICE 7 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    LEA DX,ID_CHOICE7                     ;CHOICE 7 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN
     MOV AH,9            
     INT 21H            
             
-    LEA DX,B_CHOICE8                     ;CHOICE 8 OF BREAKFAST MENU GETS PRINTED ON SCREEN 
+    LEA DX,ID_CHOICE8                     ;CHOICE 8 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN 
     MOV AH,9
     INT 21H 
     
-    LEA DX,B_CHOICE9                     ;CHOICE 9 OF BREAKFAST MENU GETS PRINTED ON SCREEN
+    LEA DX,ID_CHOICE9                     ;CHOICE 9 OF IFTAR_DINNER MENU GETS PRINTED ON SCREEN
     MOV AH,9
     INT 21H       
     
@@ -344,10 +307,10 @@ BREATFAST:                               ;BREATFAST LABEL STARTS
     JE TEN
     
     CMP BL,2
-    JE TEN
+    JE THIRTY
     
     CMP BL,3
-    JE TEN 
+    JE THIRTY 
     
     CMP BL,4
     JE TEN
@@ -359,7 +322,7 @@ BREATFAST:                               ;BREATFAST LABEL STARTS
     JE TWENTY
     
     CMP BL,7
-    JE TEN
+    JE SIXTY
     
     CMP BL,8
     JE TWENTY
@@ -367,16 +330,13 @@ BREATFAST:                               ;BREATFAST LABEL STARTS
     CMP BL,9
     JE SIXTY
     
-    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALD" LABEL     
-
-
-
+    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALID" LABEL     
 
 
 ;_________________________________
 
 ;*********************************
-;LUNCH BY DAUD
+;BUFFET BY DAUD
 ;*********************************
 ;_________________________________
 
@@ -398,6 +358,68 @@ BREATFAST:                               ;BREATFAST LABEL STARTS
 ;*********************************
 ;_________________________________
 
+DESSERTS:                                ;DESSERTS LABEL STARTS
+    LEA DX,M_CHOICE                      ;PRINTING  STRING TO CHOOSE FOOD FROM THE MENU
+    MOV AH,9        
+    INT 21H 
+    
+    LEA DX,NEWLINE                       ;NEWLINE
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER2
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER2                       ;UPPER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H     
+    
+    LEA DX,BORDER1
+    MOV AH,9
+    INT 21H
+
+    LEA DX,DT_CHOICE1                    ;CHOICE 1 OF DESSERTS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H 
+    
+    LEA DX,DT_CHOICE2                    ;CHOICE 2 OF DESSERTS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H                         
+    
+    LEA DX,DT_CHOICE3                    ;CHOICE 3 OF DESSERTS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,DT_CHOICE4                    ;CHOICE 4 OF DESSERTS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H     
+        
+    LEA DX,BORDER1
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER2                       ;LOWER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H     
+    
+    LEA DX,BORDER2
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,ORDER                         ;ASKING USER TO ENTER THE ORDER         
+    MOV AH,9
+    INT 21H     
+    
+    MOV AH,1                             ;READ A CHARACTER i.e. CHOICE
+    INT 21H
+    MOV BL,AL                            ;CONVERT IT TO HEXADECIMAL
+    SUB BL,48
+     
+    CMP BL,4                             ;IF CHOICE>4 , GO TO INVALID LABEL
+    JG INVALID 
+
+    JMP FIFTY                            ;ELSE GO TO FIFTY LABEL, BECAUSE ALL THESE ORDERS HAVE PRICE=50
 
 
 ;_________________________________
@@ -407,8 +429,190 @@ BREATFAST:                               ;BREATFAST LABEL STARTS
 ;*********************************
 ;_________________________________
 
+;_________________________________
 
+;*********************************
+;COMMON CODING FOR ALL PROGRAMS BY KOMAL
+;*********************************
+;_________________________________
 
+COMMON:                                   ;COMMON LABEL STARTS
+    LEA DX,NUMBER                         ;ASKING USER FOR THE QUANTITY OF ORDER ENTERED           
+    MOV AH,9
+    INT 21H
+    
+    MOV AH,1                             ;READS A CHARACTER i.e. QUANTITY OF ORDER
+    INT 21H
+    SUB AL,48                            ;CONVERTING IT TO HEXADECIMAL
+    
+    MUL BL                               ;AX=BL*AL i.e. TOTAL PRICE=ORDER PRICE x ORDER QUANTITY
+    AAM                                  ;ASCII ADJUSTMENT
+    
+    MOV CX,AX                            ;CX=AX
+    ADD CH,48                            ;CONVERTING AGAIN IN ASCII i.e. CHARACTER
+    ADD CL,48                            ;CONVERTING AGAIN IN ASCII i.e. CHARACTER
+
+    LEA DX,PRICE                         ;DISPLAYING STRING OF PRICE    
+    MOV AH,9
+    INT 21H
+
+    MOV AH,2                             ;DISPLAYING THE FOUND CHARACTER i.e. TOTAL PRICE
+    MOV DL,CH
+    INT 21H
+
+    MOV DL,CL                            ;MOVING THE LAST CHARACTER OF TOTAL PRICE TO DL
+    INT 21H 
+        
+    MOV DL,47
+    INT 21H
+    MOV DL,45                            ;FOR /- SYMBOL PRINT
+    INT 21H
+    
+    LEA DX,END_CHOICE1                   ;STRING WITH OPTION TO REVISIT THE MAIN MENU WILL APPEAR
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,END_CHOICE2                   ;STRING WITH OPTION TO EXIT PROGRAM WILL APPEAR
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,CHOICE                        ;ASKING USER TO MAKE A CHOICE
+    MOV AH,9 
+    INT 21H 
+    
+    MOV AH,1                             ;READ THE CHARACTER i.e. CHOICE
+    INT 21H
+    SUB AL,48                            ;CONVERTING IT TO HEXADECIMAL
+    
+    CMP AL,1                             ;IF CHOICE=1
+    JE START                               ;CONTROL WILL GO BACK TO START LABEL, i.e. MAIN MENU
+    
+    JMP EXIT                             ;ELSE CONTROL WILL GO TO EXIT LABEL
+
+COMMON1:                                 ;COMMON1 LABEL STARTS  
+    LEA DX,NUMBER                        ;ASKING USER FOR THE QUANTITY OF ORDER ENTERED            
+    MOV AH,9
+    INT 21H 
+        
+    MOV AH,1                             ;READS A CHARACTER i.e. QUANTITY OF ORDER
+    INT 21H
+    SUB AL,48                            ;CONVERTING IT TO HEXADECIMAL
+         
+    MUL BL                               ;AX=BL*AL i.e. TOTAL PRICE=ORDER PRICE x ORDER QUANTITY
+    AAM                                  ;ASCII ADJUSTMENT
+ 
+    MOV CX,AX                            ;CX=AX
+    ADD CH,48                            ;CONVERTING AGAIN IN ASCII i.e. CHARACTER
+    ADD CL,48                            ;CONVERTING AGAIN IN ASCII i.e. CHARACTER
+    
+    LEA DX,PRICE                         ;DISPLAYING STRING OF PRICE       
+    MOV AH,9
+    INT 21H
+    
+    MOV AH,2                             
+    MOV DL,CH                            ;DISPLAYING THE FOUND CHARACTER i.e. TOTAL PRICE
+    INT 21H    
+    
+    MOV DL,CL                            ;MOVING THE LAST CHARACTER OF TOTAL PRICE TO DX
+    INT 21H
+    
+    MOV DL,'0'                           ;PLACING '0' AT THE END OF TOTAL PRICE
+    INT 21H
+    
+    MOV DL,47
+    INT 21H                              ;FOR /- SYMBOL PRINT
+    MOV DL,45
+    INT 21H
+    
+    LEA DX,END_CHOICE1                   ;STRING WITH OPTION TO REVISIT THE MAIN MENU WILL APPEAR
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,END_CHOICE2                  ;STRING WITH OPTION TO EXIT PROGRAM WILL APPEAR
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,CHOICE                       ;ASKING USER TO MAKE A CHOICE
+    MOV AH,9
+    INT 21H 
+    
+    MOV AH,1                            ;READ THE CHARACTER i.e. CHOICE
+    INT 21H
+    SUB AL,48                           ;CONVERTING IT TO HEXADECIMAL
+    
+    CMP AL,1                            ;IF CHOICE=1
+    JE START                              ;CONTROL WILL GO BACK TO START LABEL, i.e. MAIN MENU
+    
+    JMP EXIT                            ;ELSE CONTROL WILL GO TO EXIT LABEL
+
+; ALL LABELS JUMPS UNCONDITIONALLY TO LABEL COMMON
+FIVE:                                    ;LABEL FOR PRICE=5 ORDERS
+    MOV BL,5                             ;BL=5
+    JMP COMMON                           
+
+SIX:                                     ;LABEL FOR PRICE=6 ORDERS
+    MOV BL,6                             ;BL=6
+    JMP COMMON                           
+
+SEVEN:                                   ;LABEL FOR PRICE=7 ORDERS
+    MOV BL,7                             ;BL=7
+    JMP COMMON                           
+
+EIGHT:                                   ;LABEL FOR PRICE=8 ORDERS
+    MOV BL,8                             ;BL=8
+    JMP COMMON                          
+
+NINE:                                    ;LABEL FOR PRICE=9 ORDERS
+    MOV BL,9                             ;BL=9
+    JMP COMMON        
+                  
+; ALL LABELS JUMPS UNCONDITIONALLY TO LABEL COMMON1
+TEN:                                     ;LABEL FOR PRICE=10 ORDERS
+    MOV BL,1                             ;BL=1
+    JMP COMMON1
+
+TWENTY:                                  ;LABEL FOR PRICE=20 ORDERS
+    MOV BL,2                             ;BL=2
+    JMP COMMON1
+
+THIRTY:                                  ;LABEL FOR PRICE=30 ORDERS
+    MOV BL,3                             ;BL=3
+    JMP COMMON1
+
+FORTY:                                   ;LABEL FOR PRICE=40 ORDERS
+    MOV BL,4                             ;BL=4
+    JMP COMMON1
+
+FIFTY:                                   ;LABEL FOR PRICE=50 ORDERS
+    MOV BL,5                             ;BL=5
+    JMP COMMON1
+
+SIXTY:                                   ;LABEL FOR PRICE=60 ORDERS
+    MOV BL,6                             ;BL=6
+    JMP COMMON1
+
+SEVENTY:                                 ;LABEL FOR PRICE=70 ORDERS
+    MOV BL,7                             ;BL=7
+    JMP COMMON1
+
+EIGHTY:                                  ;LABEL FOR PRICE=80 ORDERS
+    MOV BL,8                             ;BL=8
+    JMP COMMON1
+
+NINETY:                                  ;LABEL FOR PRICE=90 ORDERS
+    MOV BL,9                             ;BL=9
+    JMP COMMON1 
+     
+INVALID:                                 ;INVALID LABEL STARTS
+    LEA DX,INVALID1                      ;PRINTS CHOICE IS INVALID
+    MOV AH,9
+    INT 21H 
+     
+    LEA DX,INVALID2                      ;PRINTS TRY AGAIN
+    MOV AH,9
+    INT 21H 
+  
+    JMP START                              ;GO BACK TO LABEL START, i.e. MAIN MENU
 
 ;code end
  EXIT:
