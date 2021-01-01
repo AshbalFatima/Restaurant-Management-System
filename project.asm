@@ -349,7 +349,184 @@ IFTAR_DINNER:                            ;IFTAR_DINNER LABEL STARTS
 ;*********************************
 ;_________________________________
 
+DINNER:                                  ;HERE DINNER LABEL STARTS
+    LEA DX,M_CHOICE                      ;PRINTING  STRING TO CHOOSE FOOD FROM THE MENU
+    MOV AH,9         
+    INT 21H
+    
+    LEA DX,NEWLINE                       ;LOAD COMMAND FOR NEWLINE 
+    MOV AH,9
+    INT 21H
+        
+    LEA DX,BORDER4
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER4                       ;DESIGNING FOR UPPER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H      
+    
+    LEA DX,BORDER3
+    MOV AH,9
+    INT 21H
+        
+    LEA DX,D_CHOICE1                     ;CHOICE 1 OF DINNER MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H 
+    
+    LEA DX,D_CHOICE2                     ;CHOICE 2 OF DINNER MENU GETS PRINTED ON SCREEN
+    MOV AH,9              
+    INT 21H    
+    
+    LEA DX,D_CHOICE3                     ;CHOICE 3 OF DINNER MENU GETS PRINTED ON SCREEN        
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,D_CHOICE4                     ;CHOICE 4 OF DINNER MENU GETS PRINTED ON SCREEN
+    MOV AH,9                
+    INT 21H  
+        
+    LEA DX,D_CHOICE5                     ;CHOICE 5 OF DINNER MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H     
+    
+    LEA DX,D_CHOICE6                     ;CHOICE 6 OF DINNER MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H    
+     
+    LEA DX,D_CHOICE7                     ;CHOICE 7 OF DINNER MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,D_CHOICE8                     ;CHOICE 8 OF DINNER MENU GETS PRINTED ON SCREEN                    
+    MOV AH,9
+    INT 21H 
+    
+    LEA DX,D_CHOICE9                     ;CHOICE 9 OF DINNER MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H     
+       
+    LEA DX,BORDER3
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER4                       ;LOWER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER4
+    MOV AH,9
+    INT 21H   
+        
+    LEA DX,ORDER                         ;ASKING USER TO ENTER THE ORDER       
+    MOV AH,9
+    INT 21H     
+    
+    MOV AH,1                             ;READ A CHARACTER i.e. CHOICE
+    INT 21H
+    MOV BL,AL                            ;CONVERT IT TO HEXADECIMAL
+    SUB BL,48 
+    
+    CMP BL,1
+    JE SIXTY
+    
+    CMP BL,2
+    JE EIGHTY
+    
+    CMP BL,3
+    JE EIGHTY
+    
+    CMP BL,4
+    JE FORTY
+                                         ;COMARING ALL VALUES WITH HEX VALUE AND GO TO FURTHUR LABELS ON THE BASIS OF THEIR PRICES ACCORDINGLY
+    CMP BL,5                             ;i.e. IF BH=1, HAVING AN ORDER OF PRICE 60 , CONTROL WILL GO TO "SIXTY" LABEL
+    JE FIFTY
+    
+    CMP BL,6
+    JE SEVENTY
+    
+    CMP BL,7
+    JE TEN
+    
+    CMP BL,8
+    JE SIXTY
+    
+    CMP BL,9
+    JE TEN
 
+    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALID" LABEL
+        
+SNACKS:                                  ;SNACKS LABEL STARTS
+    LEA DX,M_CHOICE                      ;PRINTING  STRING TO CHOOSE FOOD FROM THE MENU
+    MOV AH,9         
+    INT 21H
+    
+    LEA DX,NEWLINE                       ;NEWLINE
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,BORDER2
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER2                       ;UPPER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H     
+    
+    LEA DX,BORDER1
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,SN_CHOICE1                    ;CHOICE 1 OF SNACKS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H 
+    
+    LEA DX,SN_CHOICE2                    ;CHOICE 2 OF SNACKS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H                         
+    
+    LEA DX,SN_CHOICE3                    ;CHOICE 3 OF SNACKS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,SN_CHOICE4                    ;CHOICE 4 OF SNACKS MENU GETS PRINTED ON SCREEN
+    MOV AH,9
+    INT 21H        
+    
+    LEA DX,BORDER1
+    MOV AH,9
+    INT 21H    
+    
+    LEA DX,BORDER2                       ;LOWER BORDER OF THE MENU
+    MOV AH,9
+    INT 21H     
+    
+    LEA DX,BORDER2
+    MOV AH,9
+    INT 21H 
+    
+    LEA DX,ORDER                         ;ASKING USER TO ENTER THE ORDER         
+    MOV AH,9
+    INT 21H     
+    
+    MOV AH,1                             ;READ A CHARACTER i.e. CHOICE
+    INT 21H
+    MOV BL,AL                            ;CONVERT IT TO HEXADECIMAL
+    SUB BL,48 
+    
+    CMP BL,1
+    JE EIGHT
+    
+    CMP BL,2
+    JE NINE
+                                         ;COMARING ALL VALUES WITH HEX VALUE AND GO TO FURTHUR LABELS ON THE BASIS OF THEIR PRICES ACCORDINGLY
+    CMP BL,3                             ;i.e. IF BH=1, HAVING AN ORDER OF PRICE 8 , CONTROL WILL GO TO "EIGHT" LABEL
+    JE FIVE
+    
+    CMP BL,4
+    JE FIVE
+    
+    JMP INVALID                          ;IF NO CHOICE MATCHES, CONTROL GOES TO "INVALID" LABEL
 
 ;_________________________________
 
